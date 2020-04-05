@@ -9,18 +9,18 @@ public class Square extends Shape {
     }
 
     @Override
-    public String draw() {
-        return "Shape: square, area: " + area()
-                + ", length: " + length()
-                + ", color: " + getColor();
+    public void draw() {
+        System.out.println(String.format(
+                "Shape: square, area: %.2f, length: %.2f, color: %s"
+                , getArea(), getLength(), getColor()));
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return length * length;
     }
 
-    public double length() {
+    public double getLength() {
         return length;
     }
 }

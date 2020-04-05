@@ -9,18 +9,18 @@ public class Circle extends Shape {
     }
 
     @Override
-    public String draw() {
-        return "Shape: circle, area: " + area()
-                + ", diameter: " + diameter()
-                + ", color: " + getColor();
+    public void draw() {
+        System.out.println(String.format(
+                "Shape: circle, area: %.2f, diameter: %.2f, color: %s"
+                , getArea(), getDiameter(), getColor()));
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    public double diameter() {
+    public double getDiameter() {
         return radius * 2;
     }
 }

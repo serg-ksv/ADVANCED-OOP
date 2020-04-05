@@ -14,18 +14,18 @@ public class Trapezoid extends Shape {
     }
 
     @Override
-    public String draw() {
-        return "Shape: trapezoid, area: " + area()
-                + ", height: " + height()
-                + ", color: " + getColor();
+    public void draw() {
+        System.out.println(String.format(
+                "Shape: trapezoid, area: %.2f, height: %.2f, color: %s"
+                , getArea(), getHeight(), getColor()));
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         return (lengthA + lengthB) / 2 * height;
     }
 
-    public double height() {
+    public double getHeight() {
         return height;
     }
 }

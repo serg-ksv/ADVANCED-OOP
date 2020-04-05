@@ -11,7 +11,7 @@ public abstract class Shape {
         return color;
     }
 
-    public abstract String draw();
+    public abstract void draw();
 
-    public abstract double area();
+    public abstract double getArea();
 }

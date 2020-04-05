@@ -14,19 +14,19 @@ public class Triangle extends Shape {
     }
 
     @Override
-    public String draw() {
-        return "Shape: triangle, area: " + area()
-                + ", perimeter: " + perimeter()
-                + ", color: " + getColor();
+    public void draw() {
+        System.out.println(String.format(
+                "Shape: triangle, area: %.2f, perimeter: %.2f, color: %s"
+                , getArea(), getPerimeter(), getColor()));
     }
 
     @Override
-    public double area() {
+    public double getArea() {
         double s = (lengthA + lengthB + lengthC) / 2;
         return Math.sqrt(s * (s - lengthA) * (s - lengthB) * (s - lengthC));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return lengthA + lengthB + lengthC;
     }
 }
