@@ -9,41 +9,46 @@ public class Generator {
     public static final int MAX_VALUE = 20;
 
     public static Shape generateShape() {
-        Shape generatedShape = new Circle(1, "black");
-        String[] shapes = {"circle", "square", "triangle", "trapezoid"};
-        String[] colors = {"red", "green", "blue", "black", "white", "yellow"};
-        String randomShape = shapes[new Random().nextInt(shapes.length)];
-        String randomColor = colors[new Random().nextInt(colors.length)];
+        Shape generatedShape = new Circle(1, Color.BLACK);
+        ShapeEnum randomShape = ShapeEnum.values()[new Random().nextInt(ShapeEnum.values().length)];
+        Color randomColor = Color.values()[new Random().nextInt(Color.values().length)];
         switch (randomShape) {
-            case "circle":
-                double radius = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
+            case CIRCLE:
+                double radius = generateValue();
                 generatedShape = new Circle(radius, randomColor);
                 break;
-            case "square":
-                double length = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
+            case SQUARE:
+                double length = generateValue();
                 generatedShape = new Square(length, randomColor);
                 break;
-            case "triange":
-                double lengthA = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
-                double lengthB = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
-                double lengthC = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
+            case TRIANGLE:
+                double lengthA = generateValue();
+                double lengthB = generateValue();
+                double lengthC = generateValue();
                 generatedShape = new Triangle(lengthA, lengthB, lengthC, randomColor);
                 break;
-            case "trapezoid":
-                double sideA = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
-                double sideB = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
-                double height = new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
+            case TRAPEZOID:
+                double sideA = generateValue();
+                double sideB = generateValue();
+                double height = generateValue();
                 generatedShape = new Trapezoid(sideA, sideB, height, randomColor);
+                break;
+            default:
+                return generatedShape;
         }
         return generatedShape;
     }
 
-    public static List generateListOfShapes(int min, int max) {
+    public static List<Shape> generateListOfShapes(int min, int max) {
         List<Shape> listOfShapes = new ArrayList<>();
         int randomInt = new Random().nextInt((max - min) + 1) + min;
         for (int i = 0; i < randomInt; i++) {
             listOfShapes.add(generateShape());
         }
         return listOfShapes;
+    }
+
+    private static double generateValue() {
+        return new Random().nextInt((MAX_VALUE - MIN_VALUE) + 1) + MIN_VALUE;
     }
 }
