@@ -6,7 +6,7 @@ public class Triangle extends Shape {
     private double lengthC;
 
     public Triangle(double lengthA, double lengthB,
-                    double lengthC, String color) {
+                    double lengthC, Color color) {
         super(color);
         this.lengthA = lengthA;
         this.lengthB = lengthB;
@@ -16,8 +16,8 @@ public class Triangle extends Shape {
     @Override
     public void draw() {
         System.out.println(String.format(
-                "Shape: triangle, area: %.2f, perimeter: %.2f, color: %s"
-                , getArea(), getPerimeter(), getColor()));
+                "Shape: triangle, area: %.2f, perimeter: %.2f, color: %s",
+                getArea(), getPerimeter(), getColor().toString().toLowerCase()));
     }
 
     @Override

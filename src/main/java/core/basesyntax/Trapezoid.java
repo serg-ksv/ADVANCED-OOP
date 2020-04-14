@@ -6,7 +6,7 @@ public class Trapezoid extends Shape {
     private double height;
 
     public Trapezoid(double lengthA, double lengthB,
-                     double height, String color) {
+                     double height, Color color) {
         super(color);
         this.lengthA = lengthA;
         this.lengthB = lengthB;
@@ -16,8 +16,8 @@ public class Trapezoid extends Shape {
     @Override
     public void draw() {
         System.out.println(String.format(
-                "Shape: trapezoid, area: %.2f, height: %.2f, color: %s"
-                , getArea(), getHeight(), getColor()));
+                "Shape: trapezoid, area: %.2f, height: %.2f, color: %s",
+                getArea(), getHeight(), getColor().toString().toLowerCase()));
     }
 
     @Override

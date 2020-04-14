@@ -1,13 +1,13 @@
 package core.basesyntax;
 
 public abstract class Shape {
-    private String color;
+    private Color color;
 
-    public Shape(String color) {
+    public Shape(Color color) {
         this.color = color;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
